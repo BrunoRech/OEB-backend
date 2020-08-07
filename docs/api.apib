@@ -1,0 +1,163 @@
+FORMAT: 1A
+
+# Group Institution
+
+# Group Institution Session
+
+# Group Act
+
+## Act Collection [/acts/{act_id}]
+
+### List Acts [GET]
++ Parameters
+    + act_id (string, optional)
++ Response 200 (application/json)
+
+        [
+          {
+            etapasEnsino: "Profissional",
+            tipoMediacao: "teste",
+            tipoCurriculo: "Base do Território Caterinense",
+            parecer: "parecer",
+            tipoAto: "tipoAto",
+            numeroAto: "numeroAto",
+            validadeTipoAto: "2016-05-18T16:00:00Z",
+            validadeParecer: "2016-05-18T16:00:00Z",
+            arquivoParecer: "5dc99d4a8da75d1e4cc12314",
+            arquivoAto: "5dc99d4a8da75d1e4cc12314"
+          }
+        ]
+
+### Create a New Act [POST]
+
++ Request (application/json)
+    + Attributes (Act)
+
++ Response 201 (application/json)
+    + Attributes (PoleCreated)
+
+
+### Delete a Act [DELETE]
++ Parameters
+    + act_id (string)
+
++ Response 204
+
+# Group Pole
+
+## Pole Collection [/poles/{pole_id}]
+
+### List Poles [GET]
++ Parameters
+    + pole_id (string, optional)
++ Response 200 (application/json)
+
+        [
+          {
+            _id: "5e5d3f95a611c326b44fbbaf",
+            municipio: {
+              id: 444,
+              nome: "test"
+            },
+            emailResponsavel: "test@test.com",
+            endereco: "test",
+            numero: 3,
+            telefoneFixo: "47992100082",
+            numeroAto: null,
+            arquivoAto: null,
+            validadeAto: null,
+            createdAt: "2020-03-02T17:17:09.456Z",
+          }
+        ]
+
+### Create a New Pole [POST]
+
++ Request (application/json)
+    + Attributes (Pole)
+
++ Response 201 (application/json)
+    + Attributes (PoleCreated)
+
+
+### Delete a Pole [DELETE]
++ Parameters
+    + pole_id (string)
+
++ Response 204
+
+# Group Admin
+
+# Group Admin Session
+
+# Group Approve Act
+
+# Group Disapprove Act
+
+# Group Dashboard
+
+# Group Notification
+
+# Data Structures
+
+## Institution (object)
++ cnpjMantenedora (string, required)
++ razaoSocialMantenedora (string, required)
++ cnpj (string, required)
++ razaoSocial (string, required)
++ nomeFantasia (string, required)
++ cep (string, required)
++ endereco (string, required)
++ numero (number)
++ municipio (Municipio)
++ site (string, required)
++ email (string, required)
++ senha (string, required)
++ telefoneFixo (string, required)
++ telefoneCelular (string, required)
++ responsavelDados (string, required)
++ telefoneResponsavel (string, required)
++ emailResponsavel (string, required)
++ secretario (string, required)
++ telefoneSecretario (string, required)
++ emailSecretario (string, required)
++ diretor (string, required)
++ telefoneDiretor (string, required)
++ emailDiretor (string, required)
++ dependenciaAdministrativa (string, required)
+
+## Act (object)
++ etapasEnsino (string)
++ tipoMediacao (string)
++ curso (string)
++ tipoCurriculo (string)
++ parecer (string)
++ tipoAto (string)
++ numeroAto (string)
++ validadeTipoAto (string)
++ validadeParecer (string)
++ arquivoParecer (string)
++ arquivoAto (string)
++ polos (array[Pole], optional)
+
+## Pole (object)
++ emailResponsavel (string)
++ endereco (string)
++ municipio (Municipio)
++ numero (number)
++ telefoneFixo (string)
+
+
+## InstitutionCreated (Institution)
++ _id (number)
++ atos (array[Act])
++ polos (array[Pole])
+
+## ActCreated (Act)
++ _id (number)
+
+## PoleCreated (Pole)
++ _id (number)
+
+## Municipio(object)
++ id (number)
++ nome (string)
